@@ -43,7 +43,7 @@
 		<div>
 			{{> title big=false data='Work Experience'}}
 			{{#each workExperience}}
-				<div>Company: {{company}}</div>
+				<div><b>Company:</b> {{company}}</div>
 					<ul>
 						<div>Title: {{title}}</div>				
 						<div>During: {{startDate}} - {{endDate}}</div>
@@ -53,7 +53,7 @@
 					</ul>
 				<br>
 				{{#each employees}}
-					<p>Employers:</p>
+					<p><b>Employers:</b></p>
 					<ul>
 						<li>
 							<div>{{name}}</div>
