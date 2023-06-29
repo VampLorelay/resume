@@ -1,0 +1,66 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<div>
+  <main>
+    {{> title big=true data='Java Script'}}
+    <p><b>{{description}}</b></p>
+    <hr />
+      {{#with history}}
+        <h5><span class="badge bg-secondary">History</span></h5>
+        <ul>
+           <div>Year: {{year}}</div>
+           <div>Founder: {{founder}}</div>
+        </ul>       
+      {{/with}}
+      <h5><span class="badge bg-secondary">Types</span></h5>
+      <ul>
+        {{#each types}}       
+          <li><span class="badge rounded-pill text-bg-light">{{this}}</span></li>    
+        {{/each}}
+      </ul>
+      <h5><span class="badge bg-secondary">Syntax</span></h5>
+      {{#with syntax}}
+        <ul>
+          <div><span class="badge rounded-pill text-bg-primary">variables:</span> {{variables}}</div>
+          <div><span class="badge rounded-pill text-bg-warning">functions:</span> {{functions}}</div>
+          <div><span class="badge rounded-pill text-bg-primary">conditionals:</span> {{conditionals}}</div>
+          <div><span class="badge rounded-pill text-bg-warning">loops:</span> {{loops}}</div>
+          <div><span class="badge rounded-pill text-bg-primary">classes:</span> {{classes}}</div>
+        </ul>
+      {{/with}}
+      <h5><span class="badge bg-secondary">Features</span></h5>
+      <ul>
+        {{#each features}}
+          <ul><span class="badge rounded-pill text-bg-light">{{this}}</span></ul>
+        {{/each}}
+      </ul>
+      <h5><span class="badge bg-secondary">Libraries</span></h5>
+      <ul>
+        {{#each libraries}}
+          <ul><span class="badge rounded-pill text-bg-light">{{this}}</span></ul>
+        {{/each}}
+      </ul>
+      <h5><span class="badge bg-secondary">Tools</span></h5>
+      <ul>
+        {{#each tools}}
+          <ul><span class="badge rounded-pill text-bg-light">{{this}}</span></ul>
+        {{/each}}
+      </ul>
+      <h5><span class="badge bg-secondary">Community</span></h5>
+      <ul>
+        {{#each community}}
+          <li>
+            <button type="button" class="btn btn-link">{{name}}</button>- {{type}}
+            <div></div>
+          </li>
+        {{/each}}
+      </ul>
+  </main>
+</div>
+
+{{!-- 
+	Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+	Адже наш layout/default.hbs має вже структуру HTML
+--}}
