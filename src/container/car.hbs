@@ -1,0 +1,255 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<div>
+  <main>
+    <h1>Toyota</h1>
+    <div><h3>{{model}}</h3>{{year}} {{color}}</div>
+    <section>
+      <button type='button' class='btn btn-primary'>
+        Features
+        <span class='badge text-bg-secondary'>3</span>
+      </button>
+      {{#with features}}
+        <ul>
+          <br />
+          <h5>Interior:</h5>
+          <ul>
+            {{#with interior}}
+              <li>
+                {{#with seats}}
+                  <div><span
+                      class='badge rounded-pill text-bg-success'
+                    >Seats</span></div>
+                  <ul>
+                    <div><b>material:</b> {{material}}</div>
+                    <div><b>color:</b> {{color}}</div>
+                    {{#if heated includeZero=true}}
+                      <div><b>heated:</b> yes</div>
+                    {{/if}}
+                    {{#if ventilated includeZero=true}}
+                      <div><b>ventilated:</b> yes</div>
+                    {{/if}}
+                  </ul>
+                {{/with}}
+              </li>
+              <li>
+                {{#with dashboard}}
+                  <div><span
+                      class='badge rounded-pill text-bg-success'
+                    >Dashboard</span></div>
+                  <ul>
+                    <div><b>material:</b> {{material}}</div>
+                    <div><b>color:</b> {{color}}</div>
+                    <div><b>display</b></div>
+                    <ul>
+                      {{#with display}}
+                        <div>type: {{type}}</div>
+                        <div>size: {{size}}</div>
+                        <div>resolution:
+                          {{resolution}}</div>
+                        {{#if touchscreen includeZero=true}}
+                          <div>touchscreen: yes</div>
+                        {{/if}}
+                      {{/with}}
+                    </ul>
+                  </ul>
+                {{/with}}
+              </li>
+              <li>
+                {{#with audio}}
+                  <div><span
+                      class='badge rounded-pill text-bg-success'
+                    >Audio</span></div>
+                  <ul>
+                    <div><b>system:</b> {{system}}</div>
+                    <div><b>speakers:</b> {{speakers}}</div>
+                    {{#if subwoofer includeZero=true}}
+                      <div><b>subwoofer:</b> yes</div>
+                    {{/if}}
+                    {{#if bluetooth includeZero=true}}
+                      <div><b>bluetooth:</b> yes</div>
+                    {{/if}}
+                    {{#if USB includeZero=true}}
+                      <div><b>USB:</b> yes</div>
+                    {{/if}}
+                  </ul>
+                {{/with}}
+              </li>
+            {{/with}}
+          </ul>
+          <br />
+          <h5>Exterior:</h5>
+          <ul>
+            {{#with exterior}}
+              <li>
+                <div><span
+                    class='badge rounded-pill text-bg-warning'
+                  >Wheels</span></div>
+                <ul>
+                  {{#with wheels}}
+                    <div><b>size:</b> {{size}}</div>
+                    <div><b>type:</b> {{type}}</div>
+                    <div><b>color:</b> {{color}}</div>
+                  {{/with}}
+                </ul>
+              </li>
+              <li>
+                <div><span
+                    class='badge rounded-pill text-bg-warning'
+                  >Headlights</span></div>
+                <ul>
+                  {{#with headlights}}
+                    <div><b>type:</b> {{type}}</div>
+                    <div><b>brightness:</b>
+                      {{brightness}}</div>
+                    {{#if automatic includeZero=true}}
+                      <div><b>automatic:</b> yes</div>
+                    {{/if}}
+                  {{/with}}
+                </ul>
+              </li>
+              <li>
+                <div><span
+                    class='badge rounded-pill text-bg-warning'
+                  >Sunroof</span></div>
+                <ul>
+                  {{#with sunroof}}
+                    <div><b>type:</b> {{type}}</div>
+                    <div><b>size:</b> {{size}}</div>
+                    {{#if automatic includeZero=true}}
+                      <div><b>automatic:</b> yes</div>
+                    {{/if}}
+                  {{/with}}
+                </ul>
+              </li>
+            {{/with}}
+          </ul>
+          <br />
+          <h5>Safety:</h5>
+          <ul>
+            {{#with safety}}
+              <li>
+                <div><span
+                    class='badge rounded-pill text-bg-info'
+                  >Airbags</span></div>
+                <ul>
+                  {{#with airbags}}
+                    <div><b>front:</b> {{front}}</div>
+                    <div><b>side:</b> {{side}}</div>
+                    <div><b>knee:</b> {{knee}}</div>
+                    <div><b>rear:</b> {{rear}}</div>
+                  {{/with}}
+                </ul>
+              </li>
+              <li>
+                <div><span
+                    class='badge rounded-pill text-bg-info'
+                  >Assistance</span></div>
+                <ul>
+                  {{#with assistance}}
+                    {{#if
+                      blind_spot_monitoring includeZero=true
+                    }}
+                      <div><b>blind spot monitoring:</b>
+                        yes</div>
+                    {{/if}}
+                    {{#if
+                      rear_cross_traffic_alert
+                      includeZero=true
+                    }}
+                      <div><b>rear cross traffic alert:</b>
+                        yes</div>
+                    {{/if}}
+                    {{#if
+                      lane_departure_warning
+                      includeZero=true
+                    }}
+                      <div><b>lane departure warning:</b>
+                        yes</div>
+                    {{/if}}
+                    {{#if
+                      adaptive_cruise_control
+                      includeZero=true
+                    }}
+                      <div><b>adaptive cruise control:</b>
+                        yes</div>
+                    {{/if}}
+                    {{#if
+                      collision_warning includeZero=true
+                    }}
+                      <div><b>collision warning:</b>
+                        yes</div>
+                    {{/if}}
+                  {{/with}}
+                </ul>
+              </li>
+            {{/with}}
+          </ul>
+        </ul>
+      {{/with}}
+    </section>
+    <section>
+      <button type='button' class='btn btn-primary'>
+        Engine
+        <span class='badge text-bg-secondary'></span>
+      </button>
+      <ul>
+        {{#with engine}}
+          <div><b>type:</b> {{type}}</div>
+          <div><b>displacement:</b> {{displacement}}</div>
+          <div><b>horsepower:</b> {{horsepower}}</div>
+          <div><b>torque:</b> {{torque}}</div>
+          <div><b>transmission:</b></div>
+          <ul>
+            {{#with transmission}}
+              <div>type: {{type}}</div>
+              <div>gears: {{gears}}</div>
+            {{/with}}
+          </ul>
+
+        {{/with}}
+      </ul>
+    </section>
+    <section>
+      <button type='button' class='btn btn-primary'>
+        Fuel economy
+        <span class='badge text-bg-secondary'></span>
+      </button>
+      <ul>
+        {{#with fuel_economy}}
+          <div><b>city:</b> {{city}}</div>
+          <div><b>highway:</b> {{highway}}</div>
+          <div><b>combined:</b> {{combined}}</div>
+        {{/with}}
+      </ul>
+    </section>
+    <section>
+      <button type='button' class='btn btn-primary'>
+        Price
+        <span class='badge text-bg-secondary'></span>
+      </button>
+      <ul>
+        {{#with price}}
+          <div><b>base:</b> {{base}}</div>
+          <div><b>destination:</b> {{destination}}</div>
+          <div><b>options:</b></div>
+          <ul>
+            {{#with options}}
+              <div>navigation: {{navigation}}</div>
+              <div>moonroof: {{moonroof}}</div>
+              <div>premium paint: {{premium_paint}}</div>
+            {{/with}}
+          </ul>
+          <div><b>total:</b> {{total}}</div>
+        {{/with}}
+      </ul>
+    </section>
+  </main>
+</div>
+
+{{!-- 
+	Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+	Адже наш layout/default.hbs має вже структуру HTML
+--}}
