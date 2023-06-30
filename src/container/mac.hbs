@@ -1,0 +1,153 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<div>
+  <main>
+    <h1>Apple MacBook
+      <span class='badge bg-secondary'> Pro</span>
+    </h1>
+    <div><b>{{description}}</b></div>
+    <button type='button' class='btn btn-primary'>
+      Price:
+      <span class='badge text-bg-secondary'>1999.99$</span>
+    </button>
+    <div>
+      <span class='badge text-bg-info'> Category</span>
+      {{category}}
+    </div>
+    <ul>
+      <h4><b>Features:</b></h4>
+      <ul>
+        {{#with features}}
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Processor</button>
+            {{#with processor}}
+              {{brand}}/{{model}}/{{speed}}/{{cores}}/{{cache}}
+            {{/with}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Memory</button>
+            {{#with memory}}
+              {{type}}/{{size}}/{{speed}}
+            {{/with}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Storage</button>
+            {{#with storage}}
+              {{type}}/{{size}}
+            {{/with}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Display</button>
+            {{#with display}}
+              {{size}}/{{resolution}}/{{technology}}/{{color_space}}/{{brightness}}/{{refresh_rate}}
+            {{/with}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Graphics</button>
+            {{#with graphics}}
+              {{brand}}/{{model}}/{{memory}}
+            {{/with}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Ports</button>
+            <ul>
+              {{#each ports}}
+                <li>
+                  <div>type: {{type}}</div>
+                  <div>count: {{count}}</div>
+                  <div>features:</div>
+                  <ul>
+                    {{#each features}}
+                      <div>{{this}}</div>
+                    {{/each}}
+                  </ul>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Battery</button>
+            {{#with battery}}
+              {{type}}/{{capacity}}/{{life}}
+            {{/with}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Weight</button>
+            {{weight}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Dimensions</button>
+            {{#with dimensions}}
+              {{height}}/{{width}}/{{depth}}
+            {{/with}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Operating system</button>
+            {{operating_system}}
+          </li>
+          <br />
+          <li>
+            <button
+              type='button'
+              class='btn btn-outline-success'
+            >Accessories</button>
+            <ul>
+              {{#each accessories}}
+                <li>
+                  <div>{{name}}</div>
+                  <div>{{price}}$</div>
+                </li>
+              {{/each}}
+            </ul>
+          </li>
+        {{/with}}
+      </ul>
+    </ul>
+  </main>
+</div>
+
+{{!-- 
+	Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+	Адже наш layout/default.hbs має вже структуру HTML
+--}}
