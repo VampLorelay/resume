@@ -1,0 +1,118 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<div>
+  <main>
+    <button
+      type='button'
+      class='btn btn-primary'
+    >Facebook</button>
+    <ul>
+      <h3>Users:</h3>
+      <ul>
+        {{#each users}}
+          <li>
+            <div>ID: {{id}}</div>
+            <div><b>{{name}}</b></div>
+            <div>{{gender}}. age: {{age}}</div>
+            <span class='badge text-bg-info'>Friends</span>
+            <ul>
+              {{#each friends}}
+                <li>
+                  <div>ID: {{id}}</div>
+                  <div><b>{{name}}</b></div>
+                  <div>{{gender}}. age: {{age}}</div>
+                  <span
+                    class='badge text-bg-secondary'
+                  >Mutual friends</span>
+                  <ul>
+                    {{#each mutual_friends}}
+                      <li>
+                        <div>ID: {{id}}</div>
+                        <div><b>{{name}}</b></div>
+                        <div>{{gender}}. age: {{age}}</div>
+                      </li>
+                      {{#if mutual_friends}}
+                        <ul>
+                          <span
+                            class='badge text-bg-secondary'
+                          >Mutual friends</span>
+                          {{#each mutual_friends}}
+                            <li>
+                              <div>ID: {{id}}</div>
+                              <div><b>{{name}}</b></div>
+                              <div>{{gender}}. age:
+                                {{age}}</div>
+                            </li>
+                          {{/each}}
+                        </ul>
+                      {{/if}}
+                    {{/each}}
+                  </ul>
+                  {{#if groups}}
+                    <span
+                      class='badge text-bg-success'
+                    >Groups</span>
+                  {{/if}}
+                  <ul>
+                    {{#each groups}}
+                      <li>
+                        <div>ID: {{id}}</div>
+                        <div><b>{{name}}</b></div>
+                        <div>{{description}}</div>
+                        <div><b>members:</b></div>
+                        <ul>
+                          {{#each members}}
+                            <li>
+                              <div>ID: {{id}}</div>
+                              <div><b>{{name}}</b></div>
+                              <div>{{gender}}. age:
+                                {{age}}</div>
+                            </li>
+                          {{/each}}
+                        </ul>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </li>
+              {{/each}}
+            </ul>
+
+            {{#if groups}}
+              <span
+                class='badge text-bg-success'
+              >Groups</span>
+              <ul>
+                {{#each groups}}
+                  <li>
+                    <div>ID: {{id}}</div>
+                    <div><b>{{name}}</b></div>
+                    <div>{{description}}</div>
+                    <div><b>members:</b></div>
+                    <ul>
+                      {{#each members}}
+                        <li>
+                          <div>ID: {{id}}</div>
+                          <div><b>{{name}}</b></div>
+                          <div>{{gender}}. age:
+                            {{age}}</div>
+                        </li>
+                      {{/each}}
+                    </ul>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+
+          </li>
+        {{/each}}
+      </ul>
+    </ul>
+  </main>
+</div>
+
+{{!-- 
+	Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+	Адже наш layout/default.hbs має вже структуру HTML
+--}}
